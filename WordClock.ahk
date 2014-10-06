@@ -1,3 +1,5 @@
+SetTimer, UpdateUI, 6000
+
 Gui, Color, gray
 Gui, Font, s25 white, Segoe UI Light
 Gui, Margin, 5, 5
@@ -33,6 +35,11 @@ Gui, Add, Text, xm Section, % "TWELVE"
 Gui, Add, Text, ys, % "O'CLOCK"
 Gui, Show, AutoSize Center, Word Clock
 return
+
+UpdateUI:
+{
+	return
+}
 
 GuiClose:
 {
