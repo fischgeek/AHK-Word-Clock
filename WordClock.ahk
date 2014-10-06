@@ -46,9 +46,7 @@ UpdateUI:
 	
 	; Set correct words to white
 	Gui, Font, cWhite
-	if (A_Min == 30)
-		GuiControl, Font, txtMinuteIdHalf
-	else if (A_Min == 05 || A_Min == 55)
+	if (A_Min == 05 || A_Min == 55)
 		GuiControl, Font, txtMinuteIdFive
 	else if (A_Min == 10 || A_Min == 50)
 		GuiControl, Font, txtMinuteIdTen
@@ -56,6 +54,11 @@ UpdateUI:
 		GuiControl, Font, txtMinuteIdQuarter
 	else if (A_Min == 20 || A_Min == 40)
 		GuiControl, Font, txtMinuteIdTwenty
+	else if (A_Min == 25 || A_Min == 35) {
+		GuiControl, Font, txtMinuteIdTwenty
+		GuiControl, Font, txtMinuteIdFive
+	} else if (A_Min == 30)
+		GuiControl, Font, txtMinuteIdHalf
 	return
 }
 
