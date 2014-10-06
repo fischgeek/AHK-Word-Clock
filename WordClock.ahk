@@ -36,6 +36,27 @@ Gui, Add, Text, ys vtxtOClock, % "O'CLOCK"
 Gui, Show, AutoSize Center, Word Clock
 return
 
+UpdateUI:
+{
+	; Reset all colors back to black
+	Gui, Font, Black
+	GuiControl, Font, txtMinuteIdHalf
+	GuiControl, Font, txtMinuteIdFive
+	GuiControl, Font, txtMinuteIdQuarter
+	
+	; Set correct words to white
+	Gui, Font, cWhite
+	if (A_Min == 30)
+		GuiControl, Font, txtMinuteIdHalf
+	else if (A_Min == 05 || A_Min == 55)
+		GuiControl, Font, txtMinuteIdFive
+	else if (A_Min == 15 || A_Min == 45)
+		GuiControl, Font, txtMinuteIdQuarter
+	else if (A_Min == 20 || A_Min == 40)
+		GuiControl, Font, txtMinuteIdTwenty
+	return
+}
+
 GuiClose:
 {
 	ExitApp
