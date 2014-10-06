@@ -4,7 +4,7 @@ Gui, Color, gray
 Gui, Font, s25 white, Segoe UI Light
 Gui, Margin, 5, 5
 
-Gui, Add, Text, Section cWhite, % "IT IS"
+Gui, Add, Text, Section vtxtItIs, % "IT IS"
 Gui, Add, Text, ys vtxtMinuteIdHalf, % "HALF"
 Gui, Add, Text, ys vtxtMinuteIdTen, % "TEN"
 
@@ -39,13 +39,15 @@ return
 UpdateUI:
 {
 	; Reset all colors back to black
+	; TODO: loop through controls for this
 	Gui, Font, Black
-	GuiControl, Font, txtMinuteIdHalf
-	GuiControl, Font, txtMinuteIdFive
-	GuiControl, Font, txtMinuteIdQuarter
+	WinGet, controls, ControlList, Word Clock
+	Loop, Parse, controls, `n
+		GuiControl, Font, %A_LoopField%
 	
 	; Set correct words to white
 	Gui, Font, cWhite
+	GuiControl, Font, txtItIs
 	if (A_Min == 05 || A_Min == 55)
 		GuiControl, Font, txtMinuteIdFive
 	else if (A_Min == 10 || A_Min == 50)
@@ -59,6 +61,8 @@ UpdateUI:
 		GuiControl, Font, txtMinuteIdFive
 	} else if (A_Min == 30)
 		GuiControl, Font, txtMinuteIdHalf
+	else if (A_Min == 00)
+		GuiControl, Font, txtOClock
 	return
 }
 
