@@ -105,7 +105,7 @@ UpdateUI:
 		GuiControl, Font, txtMinuteIdQuarter
 		GuiControl, Font, txtMinuteIdTo
 	}
-	else if A_Min between 50 and 55
+	else if A_Min between 50 and 54
 	{
 		GuiControl, Font, txtMinuteIdTen
 		GuiControl, Font, txtMinuteIdMinutes
