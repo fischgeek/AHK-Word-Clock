@@ -1,5 +1,6 @@
 SetTimer, UpdateUI, 1000
 
+Gui, +AlwaysOnTop
 Gui, Color, gray
 Gui, Font, s25 white, Segoe UI Light
 Gui, Margin, 6, 5
@@ -118,8 +119,14 @@ UpdateUI:
 		GuiControl, Font, txtMinuteIdTo
 	}
 	
-	if A_Min between 01 and 34
-		GuiControl, Font, txtHour%A_Hour%
+	if A_Min between 00 and 34
+	{
+		currentHour := A_Hour
+		if A_Hour between 13 and 24
+			currentHour := currentHour-12
+		currentHour := currentHour < 10 ? 0 currentHour : currentHour
+		GuiControl, Font, txtHour%currentHour%
+	}
 	else 
 	{
 		nextHour := (A_Hour+1)-12
