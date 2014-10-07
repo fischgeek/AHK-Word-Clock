@@ -1,4 +1,4 @@
-SetTimer, UpdateUI, 6000
+SetTimer, UpdateUI, 1000
 
 Gui, Color, gray
 Gui, Font, s25 white, Segoe UI Light
@@ -48,7 +48,6 @@ UpdateUI:
 	; Set correct words to white
 	Gui, Font, cWhite
 	GuiControl, Font, txtItIs
-	GuiControl, Font, txtHour%A_Hour%
 	if A_Min between 00 and 04
 		GuiControl, Font, txtOClock
 	else if A_Min between 05 and 09
@@ -117,6 +116,15 @@ UpdateUI:
 		GuiControl, Font, txtMinuteIdFive
 		GuiControl, Font, txtMinuteIdMinutes
 		GuiControl, Font, txtMinuteIdTo
+	}
+	
+	if A_Min between 01 and 34
+		GuiControl, Font, txtHour%A_Hour%
+	else 
+	{
+		nextHour := (A_Hour+1)-12
+		nextHour := nextHour < 10 ? 0 nextHour : nextHour
+		GuiControl, Font, % "txtHour" nextHour
 	}
 	return
 }
