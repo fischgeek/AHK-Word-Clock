@@ -40,7 +40,6 @@ return
 UpdateUI:
 {
 	; Reset all colors back to black
-	; TODO: loop through controls for this
 	Gui, Font, Black
 	WinGet, controls, ControlList, Word Clock
 	Loop, Parse, controls, `n
