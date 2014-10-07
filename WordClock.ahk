@@ -3,7 +3,7 @@ SetTimer, UpdateUI, 1000
 Gui, +AlwaysOnTop
 Gui, Color, gray
 Gui, Font, s25 white, Segoe UI Light
-Gui, Margin, 6, 5
+Gui, Margin, 10, 5
 
 Gui, Add, Text, Section vtxtItIs, % "IT IS"
 Gui, Add, Text, ys vtxtA, % "A"
