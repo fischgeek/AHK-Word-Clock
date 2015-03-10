@@ -1,6 +1,6 @@
 SetTimer, UpdateUI, 1000
 
-Gui, +AlwaysOnTop
+Gui, -AlwaysOnTop +ToolWindow -Caption +Border
 Gui, Color, gray
 Gui, Font, s25 white, Segoe UI Light
 Gui, Margin, 10, 5
@@ -36,6 +36,7 @@ Gui, Add, Text, ys vtxtHour11, % "ELEVEN"
 Gui, Add, Text, xm Section vtxtHour12, % "TWELVE"
 Gui, Add, Text, ys vtxtOClock, % "O'CLOCK"
 Gui, Show, AutoSize Center, Word Clock
+WinSet, Trans, 200, Word Clock
 return
 
 UpdateUI:
